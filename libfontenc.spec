@@ -2,11 +2,12 @@
 Name: libfontenc
 Summary:  The fontenc Library
 Version: 1.0.4
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libfontenc-%{version}.tar.bz2
+Patch0: libfontenc-visibility.patch
 BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: zlib-devel
@@ -75,6 +76,8 @@ Static development files for %{name}
 
 %prep
 %setup -q -n libfontenc-%{version}
+
+%patch0 -p1 .visibility
 
 %build
 %configure2_5x	--x-includes=%{_includedir}\
