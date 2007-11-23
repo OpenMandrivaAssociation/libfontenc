@@ -77,7 +77,7 @@ Static development files for %{name}
 %prep
 %setup -q -n libfontenc-%{version}
 
-%patch0 -p1 .visibility
+%patch0 -p1 -b .visibility
 
 %build
 %configure2_5x	--x-includes=%{_includedir}\
