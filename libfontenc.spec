@@ -8,6 +8,7 @@ License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libfontenc-%{version}.tar.bz2
 Patch0: libfontenc-visibility.patch
+BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: zlib-devel
 BuildRequires: x11-proto-devel >= 1.0.0
