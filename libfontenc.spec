@@ -7,12 +7,11 @@ Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libfontenc-%{version}.tar.bz2
-Patch0: libfontenc-visibility.patch
 BuildRoot: %{_tmppath}/%{name}-root
 
-BuildRequires: x11-util-macros	>= 1.1.5
 BuildRequires: zlib-devel
-BuildRequires: x11-proto-devel	>= 7.3
+BuildRequires: x11-proto-devel >= 1.0.0
+BuildRequires: x11-util-macros >= 1.0.1
 # list of encodings
 Requires: x11-font-encodings
 
