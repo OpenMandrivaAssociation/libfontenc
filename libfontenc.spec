@@ -1,8 +1,12 @@
-%define libfontenc %mklibname fontenc 1
+%define major 1
+%define libname %mklibname fontenc %{major}
+%define develname %mklibname fontenc -d
+%define staticdevelname %mklibname fontenc -d -s
+
 Name: libfontenc
 Summary:  The fontenc Library
 Version: 1.0.4
-Release: %mkrel 5
+Release: %mkrel 6
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -21,34 +25,39 @@ deal with different encodings of fonts.
 
 #-----------------------------------------------------------
 
-%package -n %{libfontenc}
+%package -n %{libname}
 Summary:  The fontenc Library
-Group: Development/X11
+Group: System/Libraries
 Conflicts: libxorg-x11 < 7.0
-Provides: %{name} = %{version}
+Provides: %{name} = %{version}-%{release}
 
-%description -n %{libfontenc}
+%description -n %{libname}
 libfontenc is a library which helps font libraries portably determine and 
 deal with different encodings of fonts.
 
+%files -n %{libname}
+%defattr(-,root,root)
+%{_libdir}/libfontenc.so.%{major}*
+
 #-----------------------------------------------------------
 
-%package -n %{libfontenc}-devel
+%package -n %{develname}
 Summary: Development files for %{name}
 Group: Development/X11
-Requires: %{libfontenc} = %{version}
+Requires: %{libname} = %{version}-%{release}
 Provides: libfontenc-devel = %{version}-%{release}
+Obsoletes: %{_lib}fontenc1-devel
 Conflicts: libxorg-x11-devel < 7.0
 
-%description -n %{libfontenc}-devel
+%description -n %{develname}
 Development files for %{name}
 
-%pre -n %{libfontenc}-devel
+%pre -n %{develname}
 if [ -h %{_includedir}/X11 ]; then
 	rm -f %{_includedir}/X11
 fi
 
-%files -n %{libfontenc}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/libfontenc.so
 %{_libdir}/libfontenc.la
@@ -57,17 +66,18 @@ fi
 
 #-----------------------------------------------------------
 
-%package -n %{libfontenc}-static-devel
+%package -n %{staticdevelname}
 Summary: Static development files for %{name}
 Group: Development/X11
-Requires: %{libfontenc}-devel = %{version}
+Requires: %{develname} = %{version}-%{release}
 Provides: libfontenc-static-devel = %{version}-%{release}
+Obsoletes: %{_lib}fontenc1-static-devel
 Conflicts: libxorg-x11-static-devel < 7.0
 
-%description -n %{libfontenc}-static-devel
+%description -n %{staticdevelname}
 Static development files for %{name}
 
-%files -n %{libfontenc}-static-devel
+%files -n %{staticdevelname}
 %defattr(-,root,root)
 %{_libdir}/libfontenc.a
 
@@ -96,10 +106,3 @@ rm -rf %{buildroot}
 %if %mdkversion < 200900
 %postun -p /sbin/ldconfig
 %endif
-
-%files -n %{libfontenc}
-%defattr(-,root,root)
-%{_libdir}/libfontenc.so.1
-%{_libdir}/libfontenc.so.1.0.0
-
-
