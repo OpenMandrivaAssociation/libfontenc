@@ -5,8 +5,8 @@
 
 Name: libfontenc
 Summary:  The fontenc Library
-Version: 1.0.4
-Release: %mkrel 6
+Version: 1.0.5
+Release: %mkrel 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
