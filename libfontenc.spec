@@ -16,6 +16,7 @@ BuildRequires:	x11-proto-devel >= 1.0.0
 BuildRequires:	x11-util-macros >= 1.0.1
 # list of encodings
 Requires:	x11-font-encodings
+Patch0:		libfontenc-aarch64.patch
 
 %description
 libfontenc is a library which helps font libraries portably determine and 
@@ -45,6 +46,7 @@ Development files for %{name}.
 
 %prep
 %setup -qn libfontenc-%{version}
+%patch0 -p1
 
 %build
 %configure2_5x \
