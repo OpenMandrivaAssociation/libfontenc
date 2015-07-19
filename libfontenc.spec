@@ -5,7 +5,7 @@
 Summary:	The fontenc Library
 Name:		libfontenc
 Version:	1.1.3
-Release:	1
+Release:	2
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
