@@ -1,6 +1,7 @@
 %define major	1
 %define libname	%mklibname fontenc %{major}
 %define devname	%mklibname fontenc -d
+%define _disable_rebuild_configure 1
 
 Summary:	The fontenc Library
 Name:		libfontenc
