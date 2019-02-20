@@ -1,12 +1,12 @@
-%define major	1
-%define libname	%mklibname fontenc %{major}
-%define devname	%mklibname fontenc -d
+%define major 1
+%define libname %mklibname fontenc %{major}
+%define devname %mklibname fontenc -d
 %define _disable_rebuild_configure 1
 
 Summary:	The fontenc Library
 Name:		libfontenc
-Version:	1.1.3
-Release:	7
+Version:	1.1.4
+Release:	1
 Group:		Development/X11
 License:	MIT
 Url:		http://xorg.freedesktop.org
@@ -43,8 +43,7 @@ Obsoletes:	%{_lib}fontenc-static-devel < 1.1.1.
 Development files for %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 %configure \
@@ -53,10 +52,10 @@ Development files for %{name}.
 	--x-libraries=%{_libdir} \
 	--with-encodingsdir=%{_datadir}/fonts/encodings
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libfontenc.so.%{major}*
@@ -65,4 +64,3 @@ Development files for %{name}.
 %{_libdir}/libfontenc.so
 %{_libdir}/pkgconfig/fontenc.pc
 %{_includedir}/X11/fonts/fontenc.h
-
