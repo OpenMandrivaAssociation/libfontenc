@@ -5,12 +5,12 @@
 
 Summary:	The fontenc Library
 Name:		libfontenc
-Version:	1.1.7
-Release:	2
+Version:	1.1.8
+Release:	1
 Group:		Development/X11
 License:	MIT
-Url:		http://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libfontenc-%{version}.tar.xz
+Url:		https://xorg.freedesktop.org
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libfontenc-%{version}.tar.xz
 
 BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xproto)
