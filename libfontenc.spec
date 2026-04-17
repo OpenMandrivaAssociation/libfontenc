@@ -5,7 +5,7 @@
 
 Summary:	The fontenc Library
 Name:		libfontenc
-Version:	1.1.8
+Version:	1.1.9
 Release:	1
 Group:		Development/X11
 License:	MIT
